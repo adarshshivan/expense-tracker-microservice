@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Expense Tracker Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <!-- load config first -->
+  <script defer src="config.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Expense Tracker</h1>
+    <button class="add-btn" id="openAddBtn">+ Add Expense</button>
+  </header>
+
+  <main class="container">
+    <section class="filters">
+      <input id="searchBox" type="text" placeholder="Search notes/category..." />
+      <input id="fromDate" type="date" />
+      <input id="toDate" type="date" />
+      <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="Food">Food</option>
+        <option value="Travel">Travel</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Bills">Bills</option>
+      </select>
+    </section>
+
+    <section id="statusLine" class="status">Checking API availability…</section>
+
+    <section id="cardsContainer" class="cards">
+      <!-- expense cards render here -->
+    </section>
+
+    <!-- Add / Edit Modal -->
+    <section id="modal" class="modal hidden">
+      <div class="modal-inner">
+        <h2 id="modalTitle">Add Expense</h2>
+        <form id="expenseForm">
+          <input id="amount" type="number" placeholder="Amount" required />
+          <input id="category" type="text" placeholder="Category" />
+          <input id="notes" type="text" placeholder="Notes" />
+          <input id="date" type="datetime-local" />
+          <div class="modal-actions">
+            <button type="submit" id="submitBtn">Save</button>
+            <button type="button" id="cancelBtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">Built locally — check DevTools Network for API requests.</footer>
+</body>
+</html>
