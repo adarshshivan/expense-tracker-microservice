@@ -1,0 +1,22 @@
+{
+  "TableName": "ExpensesTable",
+  "AttributeDefinitions": [
+    {"AttributeName": "expense_id", "AttributeType": "S"},
+    {"AttributeName": "date", "AttributeType": "S"},
+    {"AttributeName": "category", "AttributeType": "S"}
+  ],
+  "KeySchema": [
+    {"AttributeName": "expense_id", "KeyType": "HASH"}
+  ],
+  "BillingMode": "PAY_PER_REQUEST",
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "CategoryDateIndex",
+      "KeySchema": [
+        {"AttributeName": "category", "KeyType": "HASH"},
+        {"AttributeName": "date", "KeyType": "RANGE"}
+      ],
+      "Projection": {"ProjectionType": "ALL"}
+    }
+  ]
+}
